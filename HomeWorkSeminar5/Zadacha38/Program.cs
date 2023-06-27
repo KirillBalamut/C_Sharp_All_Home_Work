@@ -6,9 +6,10 @@ double[] arrayRealNumbers = new double[20];
 for (int i = 0; i < arrayRealNumbers.Length; i++)    /*цикл выполняется до тех пор пока переменная i не будет
  больше или равна длинне массива*/
 {
-    arrayRealNumbers[i] = new Random().Next(1, 10);   // элемент массива под переменной i нужно заполнить случайными 
-                                                      // вещественными числами newRandom(), 
-                                                      //New (указываем в каком промежутке чисел)
+    arrayRealNumbers[i] = Math.Round((new Random().NextDouble() * new Random().Next(0, 10)), 2);   // NextDouble генерирует число от 0 до 1, перемножает 
+                                                                                                   //на рандомное число в диапазоне от 0 до 10
+
+    //Next (указываем в каком промежутке чисел)
     Console.Write(arrayRealNumbers[i] + " ");      // выводим наш массив ( arrayRealNumbers[i] - переменная хранящая массив 
     // + " " (пробел))
 }
