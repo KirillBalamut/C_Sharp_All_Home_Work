@@ -1,5 +1,5 @@
-﻿/*Задача 52. Задайте двумерный массив из целых чисел. 
-Найдите среднее арифметическое элементов в каждом столбце */
+﻿/*Задача 52. Задайте двумерный массив из целых чисел
+Найдите среднее арифметическое элементов в каждом столбце 
 Console.Write("Введите размерность m массива: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите размерность n массива: ");
@@ -38,3 +38,28 @@ void arif(int m, int n)
 }
 mas(m, n);
 arif(m, n);
+*/
+int[,] array = new int[5, 5];
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[i, j] = new Random().Next(1, 5);
+        Console.Write(array[i, j] + " ");
+
+    }
+    Console.WriteLine();
+}
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    double sum = 0;
+    double avResult = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        sum = sum + array[i, j];
+    }
+    avResult = sum / array.GetLength(1);
+    Console.WriteLine($" среднее арифметическое {i}; {avResult}");
+}

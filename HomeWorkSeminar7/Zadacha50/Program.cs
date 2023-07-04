@@ -2,9 +2,14 @@
 Задача 50. Напишите программу, которая на вход принимает позиции 
 элемента в двумерном массиве, и возвращает значение этого элемента 
 или же указание, что такого элемента нет.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+17 -> такого числа в массиве нет.
 */
 
-Console.WriteLine("введите номер строки");
+/* Console.WriteLine("введите номер строки");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("введите номер столбца");
 int m = Convert.ToInt32(Console.ReadLine());
@@ -22,7 +27,7 @@ else
 
 PrintArray(numbers);
 
-void FillArrayRandomNumbers(int[,] array)
+void FillArrayRandomNumbers(int[,] array
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -37,12 +42,40 @@ void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        Console.Write("[ ");
+        Console.Write(" ");
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write(array[i, j] + " ");
         }
-        Console.Write(" ]");
+        Console.Write(" ");
         Console.WriteLine(" ");
     }
 }
+*/
+Console.WriteLine("Введите параметры двухмерного массива ");
+Console.Write("введите количество строк : ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("введите количество столбцов : ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число которое будем искать ? :");
+int find = Convert.ToInt32(Console.ReadLine());
+int[,] array = new int[n, m];
+bool f = false;
+
+
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        array[i, j] = new Random().Next(1, 100);
+        if (find == array[i, j]) { n = i; m = j; f = true; };
+        Console.Write("{0}\t", array[i, j]);
+    }
+    Console.WriteLine();
+}
+
+Console.WriteLine();
+if (f)
+    Console.WriteLine($"Число найдено. Строка {n + 1} Столбец {m + 1}");
+else
+    Console.WriteLine("Число не найдено");
