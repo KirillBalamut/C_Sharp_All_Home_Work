@@ -38,3 +38,4 @@ int FillNatural(int n)
     return temp;
 }
 FillNatural(number);
+
